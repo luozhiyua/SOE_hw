@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Student xmlns="http://www.example.com/student"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.com/student SchoolArchives.xsd">
+    
+  <PersonalInfo>
+    <FirstName>Luo</FirstName>
+    <LastName>Zhiyuan</LastName>
+    <DateOfBirth>2002-01-01</DateOfBirth>
+    <Address>NanJing</Address>
+  </PersonalInfo>
+  <AcademicInfo>
+    <StudentID>211250218</StudentID>
+    <Department>Computer Science</Department>
+    <Major>Software Engineering</Major>
+    <GPA>4.3</GPA>
+  </AcademicInfo>
+</Student>

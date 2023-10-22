@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SignClass xmlns="http://www.example.com/signClass"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.example.com/signClass SignClass.xsd">
+    <StudentInfo>
+        <FirstName>Luo</FirstName>
+        <LastName>Zhiyuan</LastName>
+        <StudentId>211250218</StudentId>
+    </StudentInfo>
+    <CourseInfo>
+        <CourseName>SECII</CourseName>
+        <CourseNumber>2</CourseNumber>
+    </CourseInfo>
+    <Sign>true</Sign>
+</SignClass>

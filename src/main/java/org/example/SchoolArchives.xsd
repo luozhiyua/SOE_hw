@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.example.com/student"
+           targetNamespace="http://www.example.com/student"
+           elementFormDefault="qualified"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Personal Information -->
+  <xsd:complexType name="PersonalInfoType">
+    <xsd:sequence>
+      <xsd:element name="FirstName" type="xsd:string"/>
+      <xsd:element name="LastName" type="xsd:string"/>
+      <xsd:element name="DateOfBirth" type="xsd:date"/>
+      <xsd:element name="Address" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Academic Information -->
+  <xsd:complexType name="AcademicInfoType">
+    <xsd:sequence>
+      <xsd:element name="StudentID" type="xsd:string"/>
+      <xsd:element name="Department" type="xsd:string"/>
+      <xsd:element name="Major" type="xsd:string"/>
+      <xsd:element name="GPA" type="xsd:decimal"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Student Element -->
+  <xsd:element name="Student">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="PersonalInfo" type="PersonalInfoType"/>
+        <xsd:element name="AcademicInfo" type="AcademicInfoType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
