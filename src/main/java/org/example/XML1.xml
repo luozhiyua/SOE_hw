@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Student xmlns="http://www.example.com/student"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.example.com/student SchoolArchives.xsd">
+
+<StudentInfo xmlns="http://www.example.com/schoolArchives"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.example.com/schoolArchives SchoolArchives.xsd">
     
   <PersonalInfo>
     <FirstName>Luo</FirstName>
@@ -15,4 +16,4 @@ xsi:schemaLocation="http://www.example.com/student SchoolArchives.xsd">
     <Major>Software Engineering</Major>
     <GPA>4.3</GPA>
   </AcademicInfo>
-</Student>
+</StudentInfo>

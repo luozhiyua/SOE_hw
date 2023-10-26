@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <SignClass xmlns="http://www.example.com/signClass"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.example.com/signClass SignClass.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:sc="http://www.example.com/schoolArchives"
+           xsi:schemaLocation="http://www.example.com/signClass SignClass.xsd">
     <StudentInfo>
-        <FirstName>Luo</FirstName>
-        <LastName>Zhiyuan</LastName>
-        <StudentId>211250218</StudentId>
+        <PersonalInfo xmlns="http://www.example.com/schoolArchives">
+            <FirstName>Luo</FirstName>
+            <LastName>Zhiyuan</LastName>
+            <DateOfBirth>2002-01-01</DateOfBirth>
+            <Address>NanJing</Address>
+        </PersonalInfo>
+        <AcademicInfo xmlns="http://www.example.com/schoolArchives">
+            <StudentID>211250218</StudentID>
+            <Department>Computer Science</Department>
+            <Major>Software Engineering</Major>
+            <GPA>4.3</GPA>
+        </AcademicInfo>
     </StudentInfo>
     <CourseInfo>
-        <CourseName>SECII</CourseName>
-        <CourseNumber>2</CourseNumber>
+        <CourseId>37</CourseId>
     </CourseInfo>
     <Sign>true</Sign>
 </SignClass>

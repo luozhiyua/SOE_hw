@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.example.com/signClass"
+            xmlns:sc="http://www.example.com/schoolArchives"
             elementFormDefault="qualified"
             targetNamespace="http://www.example.com/signClass">
-    <xsd:complexType name="StudentInfoType">
-        <xsd:sequence>
-            <xsd:element name="FirstName" type="xsd:string"/>
-            <xsd:element name="LastName" type="xsd:string"/>
-            <xsd:element name="StudentId" type="xsd:string"/>
-        </xsd:sequence>
-    </xsd:complexType>     
-    
+
+    <xsd:import namespace="http://www.example.com/schoolArchives" schemaLocation="SchoolArchives.xsd"/>
+
     <xsd:complexType name="CourseInfoType">
         <xsd:sequence>
-            <xsd:element name="CourseName" type="xsd:string"/>
-            <xsd:element name="CourseNumber" type="xsd:string"/>
+            <xsd:element name="CourseId" type="xsd:integer"/>
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:element name="SignClass">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="StudentInfo" type="StudentInfoType"/>
-                <xsd:element name="CourseInfo" type="CourseInfoType" />
-                <xsd:element name="Sign" type="xsd:boolean" />
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+    <xsd:complexType name="SignClassType">
+        <xsd:sequence>
+            <xsd:element name="StudentInfo" type="sc:StudentInfoType"/>
+            <xsd:element name="CourseInfo" type="CourseInfoType" />
+            <xsd:element name="Sign" type="xsd:boolean" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="SignClass" type="SignClassType" />
 
 
 </xsd:schema>

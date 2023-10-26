@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.example.com/courseReport"
+            targetNamespace="http://www.example.com/courseReport"
+            elementFormDefault="qualified"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="CourseInfoType">
+        <xsd:sequence>
+            <xsd:element name="CourseId" type="xsd:integer"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="StuGraInfoType">
+        <xsd:sequence>
+            <xsd:element name="StudentID" type="xsd:integer"/>
+            <xsd:element name="UsualScore" type="xsd:integer"/>
+            <xsd:element name="FinalScore" type="xsd:integer"/>
+            <xsd:element name="TotalScore" type="xsd:integer"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CourseGradeType">
+        <xsd:sequence>
+            <xsd:element name="CourseInfo" type="CourseInfoType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="StuGraInfo" type="StuGraInfoType" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="CourseReportType">
+        <xsd:sequence>
+            <xsd:element name="CourseGrade" type="CourseGradeType" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="CourseReport" type="CourseReportType" />
+
+</xsd:schema>

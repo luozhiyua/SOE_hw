@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:cr="http://www.example.com/courseReport"
+            xmlns:sr="http://www.example.com/studentReport"
+            xmlns:sc="http://www.example.com/schoolArchives"
+            xmlns:si="http://www.example.com/signClass"
+            targetNamespace="http://www.example.com/mergedSchema"
+            elementFormDefault="qualified">
+
+    <xsd:import namespace="http://www.example.com/courseReport" schemaLocation="CourseReport.xsd"/>
+    <xsd:import namespace="http://www.example.com/studentReport" schemaLocation="StudentReport.xsd"/>
+    <xsd:import namespace="http://www.example.com/schoolArchives" schemaLocation="SchoolArchives.xsd"/>
+    <xsd:import namespace="http://www.example.com/signClass" schemaLocation="SignClass.xsd"/>
+
+
+    <xsd:element name="MergedSchema">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CourseReport" type="cr:CourseReportType" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="StudentReport" type="sr:StudentReportType" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="StudentInfo" type="sc:StudentInfoType" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="SignClass" type="si:SignClassType" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
