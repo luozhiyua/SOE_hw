@@ -1,0 +1,56 @@
+<definitions name="CheckInService"
+             targetNamespace="http://example.com/checkin"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://example.com/checkin"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+    <types>
+        <xsd:schema targetNamespace="http://example.com/checkin">
+            <xsd:element name="checkInSearch">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="authName" type="xsd:string"/>
+                        <xsd:element name="authPassword" type="xsd:string"/>
+                        <xsd:element name="studentID" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="result" type="xsd:string"/>
+        </xsd:schema>
+    </types>
+
+    <message name="CheckInRequest">
+        <part name="checkInSearch" element="tns:checkInSearch"/>
+    </message>
+
+    <message name="CheckInResponse">
+        <part name="result" element="tns:result"/>
+    </message>
+
+    <portType name="CheckInPortType">
+        <operation name="studentCheckIn">
+            <input message="tns:CheckInRequest"/>
+            <output message="tns:CheckInResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="CheckInBinding" type="tns:CheckInPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="studentCheckIn">
+            <soap:operation soapAction="urn:studentCheckIn"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="CheckInService">
+        <port name="CheckInPort" binding="tns:CheckInBinding">
+            <soap:address location="http://localhost:8080/CheckInService"/>
+        </port>
+    </service>
+</definitions>

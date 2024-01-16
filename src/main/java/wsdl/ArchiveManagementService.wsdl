@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             name="StudentInfoService"
+             xmlns:tns="http://example.com/archive"
+             targetNamespace="http://example.com/archive">
+
+    <types>
+        <xsd:schema targetNamespace="http://example.com/archive">
+            <xsd:element name="studentInfoSearch">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="authName" type="xsd:string"/>
+                        <xsd:element name="authPassword" type="xsd:string"/>
+                        <xsd:element name="studentID" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="studentInfo" type="xsd:string"/>
+        </xsd:schema>
+    </types>
+
+    <message name="GetStudentInfoRequest">
+        <part name="studentInfoSearch" element="tns:studentInfoSearch"/>
+    </message>
+
+    <message name="GetStudentInfoResponse">
+        <part name="studentInfo" element="tns:studentInfo"/>
+    </message>
+
+    <portType name="StudentInfoPortType">
+        <operation name="getStudentInfo">
+            <input message="tns:GetStudentInfoRequest"/>
+            <output message="tns:GetStudentInfoResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="StudentInfoBinding" type="tns:StudentInfoPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getStudentInfo">
+            <soap:operation soapAction="getStudentInfo"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="StudentInfoService">
+        <port name="StudentInfoPort" binding="tns:StudentInfoBinding">
+            <soap:address location="http://example.com/studentinfo"/>
+        </port>
+    </service>
+
+</definitions>
